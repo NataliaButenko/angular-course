@@ -1,0 +1,24 @@
+{
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.formatOnSave": true,
+	"editor.codeLens": false,
+	"search.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/*.map": true,
+		"**/*.js": {
+			"when": "$(basename).ts"
+		},
+		"**/*?.js": {
+			"when": "$(basename).tsx"
+		},
+		"node_modules": true,
+		"dist": true
+	},
+	"files.exclude": {
+		"**/dist": true,
+		"**/node_modules": true,
+	},
+	"typescript.referencesCodeLens.enabled": true
+}
