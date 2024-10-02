@@ -1,0 +1,15 @@
+<app-add-todo></app-add-todo>
+<select [(ngModel)]="filter" (ngModelChange)="filterTodo($event)">
+  <option [value]="CompletedFilter.ALL">All</option>
+  <option [value]="CompletedFilter.COMPLETED">Completed</option>
+  <option [value]="CompletedFilter.NOT_COMPLETED">Not completed</option>
+</select>
+<ul>
+  <li *ngFor="let i of todo">
+    <label>
+      <input (ngModelChange)="activeTodo(i.id)" [ngModel]="i.completed" type="checkbox" />
+      {{ i.title }}
+    </label>
+    <button (click)="delete(i.id)">X</button>
+  </li>
+</ul>
