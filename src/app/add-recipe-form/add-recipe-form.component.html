@@ -1,0 +1,15 @@
+<div class="form">
+  <div class="field">
+    <label for="author"> Author </label>
+    <input type="text" [(ngModel)]="author" id="author" />
+  </div>
+  <div class="field" for="date">
+    <label> Date of creation </label>
+    <input type="date" [(ngModel)]="date" id="date" />
+  </div>
+  <div class="field">
+    <label for="recipe"> Recipe </label>
+    <textarea [(ngModel)]="recipe" id="recipe" rows="5"> </textarea>
+  </div>
+  <button (click)="addRecipe()" [disabled]="!author || !recipe">Add</button>
+</div>

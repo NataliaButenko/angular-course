@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FirstComponentComponent } from './first-component/first-component.component';
-import { FirstDerectiveDirective } from './first-derective.directive';
 import { CommonModule } from '@angular/common';
+import { AddRecipeFormComponent } from './add-recipe-form/add-recipe-form.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FirstComponentComponent, FirstDerectiveDirective, CommonModule],
+  imports: [RouterOutlet, CommonModule, AddRecipeFormComponent, RecipeListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'my-app';
-  public isHide: boolean = true;
-  public arr: string[] = ['1', '2', '3'];
-}
+export class AppComponent {}
