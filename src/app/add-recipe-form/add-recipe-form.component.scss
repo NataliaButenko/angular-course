@@ -1,0 +1,48 @@
+:host {
+	width: 50%;
+	border-right: 1px solid #C1CBD4;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.form {
+		width: 400px;
+
+		.field {
+			margin-bottom: 16px;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 4px;
+		}
+
+		input[type="text"], textarea, input[type="date"]{
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		button {
+			background-color: #007BFF;
+			color: white;
+			border: none;
+			padding: 10px 15px;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 4px;
+			width: 100%;
+
+			&:hover {
+				background-color: #0056b3;
+			}
+			&:disabled {
+				opacity: 0.6;
+			}
+		}
+	}
+}
