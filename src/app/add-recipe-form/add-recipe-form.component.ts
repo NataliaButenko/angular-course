@@ -1,5 +1,4 @@
-import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RecipeRepositiry } from '../recipe.repositiry';
 
@@ -10,7 +9,7 @@ import { RecipeRepositiry } from '../recipe.repositiry';
   templateUrl: './add-recipe-form.component.html',
   styleUrl: './add-recipe-form.component.scss',
 })
-export class AddRecipeFormComponent {
+export class AddRecipeFormComponent implements OnInit {
   public author: string = '';
   public date: string = '';
   public recipe: string = '';
@@ -22,9 +21,6 @@ export class AddRecipeFormComponent {
   }
 
   public addRecipe(): void {
-    // console.log('author', this.author);
-    // console.log('data', this.date);
-    // console.log('recipe', this.recipe);
     this.recipesRepository.addRecipe(this.author, this.date, this.recipe);
     this.resetForm();
   }

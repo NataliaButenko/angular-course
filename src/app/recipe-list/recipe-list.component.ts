@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeRepositiry } from '../recipe.repositiry';
-import { IRecipe, SortByDate } from '../shared/recipe.inperface';
+import { IRecipe } from '../shared/recipe.interface';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SortByDate } from '../shared/recipe.enum';
 
 @Component({
   selector: 'recipe-list',

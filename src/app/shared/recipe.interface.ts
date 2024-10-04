@@ -4,9 +4,3 @@ export interface IRecipe {
   recipe: string;
   id: string;
 }
-
-export enum SortByDate {
-  None = 'None',
-  Ascending = 'Ascending',
-  Descending = 'Descending',
-}
