@@ -1,0 +1,21 @@
+table {
+	width: 100%;
+	border-collapse: collapse;
+
+	th, td {
+		padding: 10px;
+		border: 1px solid #E6ECF0;
+	}
+
+	tr.selected {
+		background-color: #F9FAFB;
+	}
+	
+	td {
+		cursor: pointer;
+	}
+
+	input[type="checkbox"] {
+		cursor: pointer;
+	}
+}
