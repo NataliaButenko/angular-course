@@ -1,0 +1,10 @@
+<div (click)="$event.stopPropagation()" class="sideMenu">
+  <h3>{{ selectedProduct.name }}</h3>
+  <p><strong>Category:</strong> {{ selectedProduct.category }}</p>
+  <p>
+    <strong>Price: </strong>
+    <app-product-price [price]="selectedProduct.price"></app-product-price>
+  </p>
+  <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+  <p><strong>In Stock:</strong> {{ selectedProduct.inStock ? 'Yes' : 'No' }}</p>
+</div>

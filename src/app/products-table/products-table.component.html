@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>In Stock</th>
+      <th>Select</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(product of products; track product.id) {
+    <tr
+      [ngClass]="{ selected: selectedProduct?.id === product.id }"
+      (click)="onProductClick(product, $event)"
+    >
+      <td>{{ product.name }}</td>
+      <td><app-product-price [price]="product.price"></app-product-price></td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.inStock ? 'Yes' : 'No' }}</td>
+      <td>
+        <input
+          type="checkbox"
+          [ngModel]="product.selected"
+          (ngModelChange)="handleSelectedChange(product.id)"
+          (click)="selectClick($event)"
+        />
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+@if(selectedProduct) {
+<app-side-menu [selectedProduct]="selectedProduct"></app-side-menu>
+}
