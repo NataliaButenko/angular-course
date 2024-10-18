@@ -1,0 +1,22 @@
+.table-container {
+	width: 100%;
+	overflow-x: auto; 
+
+	table {
+		width: 100%;
+
+		.cell {
+			padding: 8px;
+		}
+	}
+}
+  
+@media (max-width: 600px) {
+  .table-container {
+    overflow-x: scroll; 
+  }
+  
+  table {
+    min-width: 600px; 
+  }
+}
