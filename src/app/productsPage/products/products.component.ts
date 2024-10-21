@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TableComponent } from '../table/table.component';
-import { Product } from '../shared/product.interface';
+import { Product } from '../../shared/product.interface';
 
 @Component({
   selector: 'products',

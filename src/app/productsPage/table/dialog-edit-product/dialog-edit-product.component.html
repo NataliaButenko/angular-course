@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Edit product</h2>
+<mat-dialog-content class="content">
+  <mat-form-field class="field">
+    <mat-label>Product name</mat-label>
+    <input matInput [(ngModel)]="name" />
+  </mat-form-field>
+  <mat-form-field class="field">
+    <mat-label>Price</mat-label>
+    <input matInput [(ngModel)]="price" type="number" />
+  </mat-form-field>
+  <mat-form-field class="field">
+    <mat-label>Discount, %</mat-label>
+    <input matInput [(ngModel)]="discountPersent" type="number" />
+  </mat-form-field>
+  <mat-form-field class="field">
+    <mat-label>Sku</mat-label>
+    <input matInput [(ngModel)]="sku" />
+  </mat-form-field>
+  <mat-form-field class="field">
+    <mat-label>Country</mat-label>
+    <mat-select [(ngModel)]="country">
+      <mat-option value="ua">Ukraine</mat-option>
+      <mat-option value="de">Germany</mat-option>
+      <mat-option value="us">United States</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="save()">Save</button>
+</mat-dialog-actions>

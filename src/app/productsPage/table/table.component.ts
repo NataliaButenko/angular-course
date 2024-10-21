@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { Product } from '../shared/product.interface';
+import { Product } from '../../shared/product.interface';
 import { ProductCellComponent } from './cells/product-cell/product-cell.component';
 import { SkuCellComponent } from './cells/sku-cell/sku-cell.component';
 import { PriceCellComponent } from './cells/price-cell/price-cell.component';

@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, ProductsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

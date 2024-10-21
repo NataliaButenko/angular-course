@@ -1,0 +1,10 @@
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 400px;
+
+	.field {
+		width: 100%;
+	}
+}
