@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AppRoutingModule } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -24,6 +25,7 @@ import { AppRoutingModule } from './app.routes';
     MatListModule,
     RouterModule,
     RouterModule.forRoot([]),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

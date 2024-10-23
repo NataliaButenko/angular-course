@@ -44,9 +44,9 @@ export class ActionsCellComponent {
         name: this.product.name,
         sku: this.product.sku,
         price: this.product.price,
-        discountPersent: this.product.discountPersent,
+        discountPersent: this.product.discount,
         tags: this.product.tags,
-        country: this.product.country,
+        country: this.product.countryCode,
       },
     });
 

@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './product-cell.component.scss',
 })
 export class ProductCellComponent {
-  @Input() product!: { imgUrl: string; name: string; sku: string };
+  @Input() product!: { image: string; name: string; productID: string };
 }
