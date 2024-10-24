@@ -1,4 +1,7 @@
 <div class="wrap">
-  <h1>Products</h1>
+  <div class="grid-row">
+    <h1>Products</h1>
+    <button mat-flat-button (click)="openDialog()">Create new product</button>
+  </div>
   <app-table [dataSource]="products" [displayedColumns]="columns"></app-table>
 </div>

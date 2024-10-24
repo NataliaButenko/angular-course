@@ -35,16 +35,17 @@ import { MatIconModule } from '@angular/material/icon';
     MatChipsModule,
     MatIconModule,
   ],
-  templateUrl: './dialog-edit-product.component.html',
-  styleUrl: './dialog-edit-product.component.scss',
+  templateUrl: './dialog-add_or_edit-product.component.html',
+  styleUrl: './dialog-add_or_edit-product.component.scss',
 })
-export class DialogEditProductComponent implements OnInit {
+export class DialogAddOrEditProductComponent implements OnInit {
   public name: string = '';
   public price: number = 0;
-  public discountPersent: number = 0;
+  public discount: number = 0;
   public sku: string = '';
   public tags: string[] = [];
-  public country: string = '';
+  public countryCode: string = '';
+  public isEditMode: boolean = true;
 
   public dialogRef = inject(MatDialogRef<DialogData | string>);
   public data = inject<DialogData>(MAT_DIALOG_DATA);
@@ -54,10 +55,11 @@ export class DialogEditProductComponent implements OnInit {
   ngOnInit(): void {
     this.name = this.data.name;
     this.price = this.data.price;
-    this.discountPersent = this.data.discountPersent;
+    this.discount = this.data.discount;
     this.sku = this.data.sku;
     this.tags = this.data.tags;
-    this.country = this.data.country;
+    this.countryCode = this.data.countryCode;
+    this.isEditMode = this.data.isEditMode;
   }
 
   onNoClick(): void {
@@ -65,7 +67,14 @@ export class DialogEditProductComponent implements OnInit {
   }
 
   save(): void {
-    console.log('save');
+    this.dialogRef.close({
+      name: this.name,
+      price: this.price,
+      discount: this.discount,
+      sku: this.sku,
+      tags: this.tags,
+      countryCode: this.countryCode,
+    });
   }
 
   removeTemplateTag(keyword: string) {

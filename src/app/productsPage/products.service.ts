@@ -23,13 +23,13 @@ export class ProductsService extends AbstractService {
     );
   }
 
-  public nGetData(): void {
+  public getProducts(): void {
     this.getData().subscribe((data) => {
       this.productsSubject.next(data);
     });
   }
 
-  public putData(productID: number, body: any): Observable<any> {
+  public updateProduct(productID: number, body: any): Observable<any> {
     return this.http.request({ method: 'PUT', urlPath: `products/${productID}`, body }).pipe(
       catchError((error: any) => {
         return this.handelError(error);
@@ -37,7 +37,7 @@ export class ProductsService extends AbstractService {
     );
   }
 
-  public deleteData(productID: number): Observable<any> {
+  public deleteProduct(productID: number): Observable<any> {
     return this.http.request({ method: 'DELETE', urlPath: `products/${productID}` }).pipe(
       catchError((error: any) => {
         return this.handelError(error);
@@ -45,7 +45,7 @@ export class ProductsService extends AbstractService {
     );
   }
 
-  public postData(body: Product): Observable<any> {
+  public createProduct(body: any): Observable<any> {
     return this.http.request({ method: 'POST', urlPath: 'products', body }).pipe(
       catchError((error: any) => {
         return this.handelError(error);

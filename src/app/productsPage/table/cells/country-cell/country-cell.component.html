@@ -1,1 +1,2 @@
-<span [class]="'fi ' + 'fi-' + country"></span>
+<!-- Не подобається мені це рішення, але бібліотека flag-icons не розпізнає uk  -->
+<span [class]="'fi ' + 'fi-' + (country === 'uk' ? 'gb' : country)"></span>

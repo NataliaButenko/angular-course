@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Edit product</h2>
+<h2 mat-dialog-title>@if(isEditMode) { Edit product } @else { Create new product }</h2>
 <mat-dialog-content class="content">
   <mat-form-field class="field">
     <mat-label>Product name</mat-label>
@@ -10,7 +10,7 @@
   </mat-form-field>
   <mat-form-field class="field">
     <mat-label>Discount, %</mat-label>
-    <input matInput [(ngModel)]="discountPersent" type="number" />
+    <input matInput [(ngModel)]="discount" type="number" />
   </mat-form-field>
   <mat-form-field class="field">
     <mat-label>Sku</mat-label>
@@ -36,14 +36,16 @@
   </mat-form-field>
   <mat-form-field class="field">
     <mat-label>Country</mat-label>
-    <mat-select [(ngModel)]="country">
+    <mat-select [(ngModel)]="countryCode">
       <mat-option value="ua"> <span class="fi fi-ua flag-icon"></span>Ukraine</mat-option>
       <mat-option value="de"><span class="fi fi-de flag-icon"></span>Germany</mat-option>
       <mat-option value="us"><span class="fi fi-us flag-icon"></span>United States</mat-option>
+      <mat-option value="uk"><span class="fi fi-gb flag-icon"></span>United Kingdom</mat-option>
+      <mat-option value="ca"><span class="fi fi-ca flag-icon"></span>Canada</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button (click)="save()" matTooltip="In develop">Save</button>
+  <button mat-button (click)="save()">@if(isEditMode) { Save } @else { Create }</button>
 </mat-dialog-actions>

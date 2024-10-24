@@ -1,3 +1,15 @@
 .wrap {
 	padding: 24px;
+
+	.grid-row {
+		display: grid;
+		grid-template-columns: 1fr max-content;
+		column-gap: 16px;
+		align-items: end;
+		margin-bottom: 24px;
+
+		h1 {
+			margin: 0;
+		}
+	}
 }
