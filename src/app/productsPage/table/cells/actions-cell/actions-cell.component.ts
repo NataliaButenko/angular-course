@@ -66,7 +66,6 @@ export class ActionsCellComponent {
           tags: result.tags,
         };
         this.productsService.updateProduct(this.product.productID, data).subscribe((response) => {
-          console.log('response', response);
           this.productsService.getProducts();
         });
       }
@@ -80,12 +79,15 @@ export class ActionsCellComponent {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'yes') {
+      if (result) {
         this.productsService.deleteProduct(this.product.productID).subscribe((response) => {
-          console.log('response', response);
           this.productsService.getProducts();
         });
       }
     });
+  }
+
+  onClick(event: Event) {
+    event.stopPropagation();
   }
 }

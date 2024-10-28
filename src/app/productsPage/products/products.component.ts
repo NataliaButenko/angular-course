@@ -5,6 +5,7 @@ import { ProductsService } from '../products.service';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogAddOrEditProductComponent } from '../table/dialog-add_or_edit-product/dialog-add_or_edit-product.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogEditProductPartComponent } from '../table/dialog-edit-product-part/dialog-edit-product-part.component';
 
 @Component({
   selector: 'products',
@@ -24,12 +25,21 @@ export class ProductsComponent {
       this.products = data;
     });
   }
-  public columns: string[] = ['product', 'sku', 'price', 'country', 'tags', 'actions'];
+  public columns: string[] = [
+    'product',
+    'categories',
+    'sku',
+    'price',
+    'country',
+    'tags',
+    'actions',
+  ];
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddOrEditProductComponent, {
       data: {
         name: '',
+        categories: '',
         sku: '',
         price: 0,
         discount: 0,
@@ -56,6 +66,16 @@ export class ProductsComponent {
           this.productsService.getProducts();
         });
       }
+    });
+  }
+
+  onRowClick(product: Product): void {
+    const dialogRef = this.dialog.open(DialogEditProductPartComponent, {
+      data: product,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('result', result);
     });
   }
 }

@@ -9,4 +9,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductCellComponent {
   @Input() product!: { image: string; name: string; productID: string };
+
+  onClick(event: Event) {
+    event.stopPropagation();
+  }
 }

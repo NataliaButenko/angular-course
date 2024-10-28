@@ -19,7 +19,7 @@ export class DialogConfirmComponent {
   public dialogRef = inject(MatDialogRef<{ message: string } | string>);
   public data = inject<{ message: string }>(MAT_DIALOG_DATA);
 
-  handleClick(type: 'yes' | 'no'): void {
+  handleClick(type: boolean): void {
     this.dialogRef.close(type);
   }
 }

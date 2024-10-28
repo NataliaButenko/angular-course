@@ -4,7 +4,7 @@
     {{ data.message }}
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-button (click)="handleClick('no')">No</button>
-    <button mat-button cdkFocusInitial (click)="handleClick('yes')">Ok</button>
+    <button mat-button (click)="handleClick(false)">No</button>
+    <button mat-button cdkFocusInitial (click)="handleClick(true)">Ok</button>
   </mat-dialog-actions>
 </div>
