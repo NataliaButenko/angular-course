@@ -1,0 +1,19 @@
+.form {
+	padding: 16px;
+	width: 400px;
+
+	.field {
+		display: block;
+		margin-bottom: 12px;
+	}
+
+	.actions {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.title {
+		text-align: center;
+	}
+}
