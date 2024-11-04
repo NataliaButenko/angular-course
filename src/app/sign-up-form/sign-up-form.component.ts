@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   AbstractControl,
-  FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   ValidationErrors,
@@ -13,6 +13,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Observable, of, map } from 'rxjs';
 
+interface IRefistrationForm {
+  username: FormControl<string | null>;
+  email: FormControl<string | null>;
+  password: FormControl<string | null>;
+  confirmPassword: FormControl<string | null>;
+}
+
 @Component({
   selector: 'sign-up-form',
   standalone: true,
@@ -21,29 +28,29 @@ import { Observable, of, map } from 'rxjs';
   styleUrl: './sign-up-form.component.scss',
 })
 export class SignUpFormComponent {
-  public registrationForm: FormGroup = new FormGroup<any>({});
+  public registrationForm: FormGroup = new FormGroup<IRefistrationForm>({
+    username: new FormControl('', Validators.required),
+    email: new FormControl(
+      '',
+      [Validators.required, Validators.email],
+      [this.emailValidator.bind(this)]
+    ),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      this.passwordMatchValidator.bind(this),
+    ]),
+  });
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.registrationForm = this.fb.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email], [this.emailValidator.bind(this)]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: [
-        '',
-        [Validators.required, Validators.minLength(6)],
-        [this.passwordMatchValidator.bind(this)],
-      ],
-    });
-  }
-
-  private passwordMatchValidator(control: AbstractControl): Observable<ValidationErrors | null> {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirmPassword');
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    const password = this.registrationForm?.controls['password'];
+    const confirmPassword = control;
     return password && confirmPassword && password.value !== confirmPassword.value
-      ? of({ passwordMismatch: true })
-      : of(null);
+      ? { passwordMismatch: true }
+      : null;
   }
 
   private emailValidator(control: AbstractControl): Observable<ValidationErrors | null> {
