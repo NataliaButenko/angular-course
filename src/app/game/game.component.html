@@ -1,0 +1,38 @@
+<div class="controls">
+  <div class="score">
+    <div class="player">
+      Player points - <b>{{ gameStatus.playerScore }}</b>
+    </div>
+    <div class="computer">
+      <b>{{ gameStatus.computerScore }}</b> - Computer points
+    </div>
+  </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Reaction time (ms)</mat-label>
+    <input matInput [(ngModel)]="timer" type="number" min="100" />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onStart()"
+    [disabled]="gameStatus.gameInProgress"
+  >
+    Start
+  </button>
+</div>
+
+<div class="game-board">
+  @for(item of gameBoard; track item.id) {
+  <div
+    class="cell"
+    [ngClass]="{
+      active: item.isActive,
+      computer: item.holder === Holder.Computer,
+      player: item.holder === Holder.Player,
+      sistem: item.holder === Holder.Sistem
+    }"
+    (click)="onCellClick(item.id)"
+  >
+  </div>
+  }
+</div>
