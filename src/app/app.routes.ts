@@ -26,6 +26,34 @@ export const routes: Routes = [
     loadComponent: async () =>
       (await import('./settingsPage/settings/settings.component')).SettingsComponent,
   },
+  {
+    path: 'stores',
+    loadComponent: async () =>
+      (await import('./stores/store-lauoyt/store-lauoyt.component')).StoreLauoytComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'store-a',
+        pathMatch: 'full',
+      },
+      {
+        path: 'store-a',
+        loadComponent: async () =>
+          (await import('./stores/store-a/store-a.component')).StoreAComponent,
+      },
+      {
+        path: 'store-b',
+        loadComponent: async () =>
+          (await import('./stores/store-b/store-b.component')).StoreBComponent,
+      },
+      {
+        path: 'store-c',
+        loadComponent: async () =>
+          (await import('./stores/store-c/store-c.component')).StoreCComponent,
+      },
+    ],
+  },
+
   { path: '**', redirectTo: '/products' },
 ];
 

@@ -1,0 +1,19 @@
+h1 {
+	font-size: 26px;
+}
+
+.loading {
+	text-align: center;
+	font-size: 18px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+
+	.field {
+		display: flex;
+		flex-direction: column;
+		margin: 0 4px;
+	}
+}
