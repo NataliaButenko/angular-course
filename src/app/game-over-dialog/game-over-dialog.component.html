@@ -1,9 +1,12 @@
-<h1 mat-dialog-title>Game over</h1>
-<div mat-dialog-content>
-  <p>{{ data.message }}</p>
-  <p>Player points: {{ data.playerScore }}</p>
-  <p>Computer points: {{ data.computerScore }}</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">ОК</button>
+<div class="wrap">
+  <h1 mat-dialog-title>Game over</h1>
+  <div mat-dialog-content>
+    <h2>{{ data.message }}</h2>
+    <p>Player points: {{ data.playerScore }}</p>
+    <p>Computer points: {{ data.computerScore }}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ОК</button>
+  </div>
+  <div [ngClass]="{ firework: data.playerScore > data.computerScore }"></div>
 </div>

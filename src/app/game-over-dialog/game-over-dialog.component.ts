@@ -7,11 +7,12 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'game-over-dialog',
   standalone: true,
-  imports: [MatButtonModule, MatDialogTitle, MatDialogContent, MatDialogActions],
+  imports: [MatButtonModule, MatDialogTitle, MatDialogContent, MatDialogActions, CommonModule],
   templateUrl: './game-over-dialog.component.html',
   styleUrl: './game-over-dialog.component.scss',
 })

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, interval, map, Subscription, takeWhile, tap } from 'rxjs';
+import { BehaviorSubject, interval, takeWhile, tap } from 'rxjs';
 import { GameStatus, Holder, ICell } from '../share/game.types';
 
 @Injectable({

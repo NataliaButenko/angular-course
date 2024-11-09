@@ -1,4 +1,8 @@
 <div class="controls">
+  <mat-form-field appearance="outline">
+    <mat-label>Reaction time (ms)</mat-label>
+    <input matInput [(ngModel)]="timer" type="number" min="100" />
+  </mat-form-field>
   <div class="score">
     <div class="player">
       Player points - <b>{{ gameStatus.playerScore }}</b>
@@ -7,10 +11,6 @@
       <b>{{ gameStatus.computerScore }}</b> - Computer points
     </div>
   </div>
-  <mat-form-field appearance="outline">
-    <mat-label>Reaction time (ms)</mat-label>
-    <input matInput [(ngModel)]="timer" type="number" min="100" />
-  </mat-form-field>
   <button
     mat-raised-button
     color="primary"
@@ -32,7 +32,6 @@
       sistem: item.holder === Holder.Sistem
     }"
     (click)="onCellClick(item.id)"
-  >
-  </div>
+  ></div>
   }
 </div>
