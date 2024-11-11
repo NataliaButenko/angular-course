@@ -1,53 +1,24 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FilterConfig } from 'src/app/shared/filters.interface';
+import { Component, OnInit } from '@angular/core';
 import { StoresService } from '../stores.service';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTableModule } from '@angular/material/table';
+import { StoreTableComponent } from '../store-table/store-table.component';
+import { StoreFiltersComponent } from '../store-filters/store-filters.component';
 
 @Component({
   selector: 'store-b',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatButtonModule,
-    MatCheckboxModule,
-  ],
+  imports: [CommonModule, StoreTableComponent, StoreFiltersComponent],
   templateUrl: './store-b.component.html',
   styleUrl: './store-b.component.scss',
 })
-export class StoreBComponent {
-  public filters: FilterConfig[] = [];
-  public filtersForm?: FormGroup;
+export class StoreBComponent implements OnInit {
   public displayedColumns: string[] = [];
   public data: any[] = [];
 
-  constructor(private storeService: StoresService, private fb: FormBuilder) {}
+  constructor(private storeService: StoresService) {}
 
   ngOnInit() {
-    this.fetchFilters();
     this.fetchData();
-    this.filtersForm = this.fb.group({});
-  }
-
-  private fetchFilters() {
-    this.storeService.getFilters('storeB').subscribe((filters) => {
-      this.filters = filters;
-      filters.forEach((filter) => {
-        this.filtersForm?.addControl(filter.name, this.fb.control(''));
-      });
-    });
   }
 
   private fetchData() {
@@ -59,8 +30,7 @@ export class StoreBComponent {
     });
   }
 
-  applyFilters() {
-    const filters = this.filtersForm?.value;
+  applyFilters(filters: { [key: string]: string }) {
     this.storeService.getFilteredProducts('storeB', filters).subscribe((response) => {
       this.data = response;
     });
@@ -68,6 +38,5 @@ export class StoreBComponent {
 
   resetFilters() {
     this.fetchData();
-    this.filtersForm?.reset();
   }
 }

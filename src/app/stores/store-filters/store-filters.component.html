@@ -1,0 +1,30 @@
+@if(filtersLoading) {
+<p class="loading">Loading filters...</p>
+} @if(filtersForm) {
+<form [formGroup]="filtersForm" (ngSubmit)="onApply()">
+  <div class="container">
+    <div *ngFor="let filter of filters" class="field">
+      <label>{{ filter.label }}</label>
+      <ng-container [ngSwitch]="filter.type">
+        <mat-form-field *ngSwitchCase="'select'">
+          <mat-select formControlName="{{ filter.name }}">
+            <mat-option *ngFor="let option of filter.options" [value]="option.value">{{
+              option.name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-checkbox *ngSwitchCase="'checkbox'" formControlName="{{ filter.name }}">{{
+          filter.label
+        }}</mat-checkbox>
+        <mat-form-field *ngSwitchCase="'text'">
+          <input matInput formControlName="{{ filter.name }}" />
+        </mat-form-field>
+      </ng-container>
+    </div>
+  </div>
+  <div class="container">
+    <button mat-raised-button type="submit">Apply</button>
+    <button mat-button type="button" (click)="onReset()">Reset</button>
+  </div>
+</form>
+}
