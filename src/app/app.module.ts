@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AppRoutingModule } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     RouterModule.forRoot([]),
     HttpClientModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],

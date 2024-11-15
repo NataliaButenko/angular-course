@@ -53,7 +53,11 @@ export const routes: Routes = [
       },
     ],
   },
-
+  {
+    path: 'store-products',
+    loadComponent: async () =>
+      (await import('./store-products/store-products.component')).StoreProductsComponent,
+  },
   { path: '**', redirectTo: '/products' },
 ];
 

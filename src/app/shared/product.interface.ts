@@ -11,3 +11,12 @@ export interface Product {
   tags: string[];
   image: string;
 }
+
+export interface StoreProduct {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  brand: string;
+  inStock: boolean;
+}
