@@ -1,0 +1,14 @@
+.content {
+	width: 500px;
+
+	.field {
+		width: 100%;
+	}
+
+	.content-box {
+		width: 100%;
+		height: 320px;
+		overflow: auto;
+		padding: 8px 0;
+	}
+}

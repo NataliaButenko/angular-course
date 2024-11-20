@@ -1,0 +1,14 @@
+<h1>Page store A</h1>
+<p>Client-side filtering</p>
+<div>
+  <store-filters
+    storeName="storeA"
+    (applyFilters)="applyFilters($event)"
+    (resetFilters)="resetFilters()"
+  ></store-filters>
+</div>
+<div>
+  @if(filteredData) {
+  <store-table [dataSource]="filteredData" [displayedColumns]="displayedColumns"></store-table>
+  }
+</div>

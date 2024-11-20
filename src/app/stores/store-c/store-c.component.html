@@ -1,0 +1,16 @@
+<h1>Page store C</h1>
+<p>Server-side filtering + loading</p>
+<div>
+  <store-filters
+    storeName="storeC"
+    (applyFilters)="applyFilters($event)"
+    (resetFilters)="resetFilters()"
+  ></store-filters>
+</div>
+<div>
+  @if(tableLoading) {
+  <p class="loading">Loading table...</p>
+  } @else { @if(data) {
+  <store-table [dataSource]="data" [displayedColumns]="displayedColumns"></store-table>
+  } }
+</div>

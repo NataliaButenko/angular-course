@@ -1,0 +1,10 @@
+<div class="wrap">
+  <h1 mat-dialog-title>Confirm!</h1>
+  <mat-dialog-content>
+    {{ data.message }}
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="handleClick(false)">No</button>
+    <button mat-button cdkFocusInitial (click)="handleClick(true)">Ok</button>
+  </mat-dialog-actions>
+</div>
